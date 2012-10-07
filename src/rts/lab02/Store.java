@@ -15,6 +15,9 @@ public class Store {
 		textArea.append("На складе " + balance + " единиц товара. \n");
 	}
 
+	/**
+	 * @param quantity - количество добавляемого товара
+	 */
 	public synchronized void put(int quantity) {
 		int available = capacity - balance;
 		if (available >= quantity) {
@@ -28,6 +31,9 @@ public class Store {
 		}
 	}
 
+	/**
+	 * @param quantity - количество товара, получаемого со склада
+	 */
 	public synchronized void get(int quantity) {
 		if (balance >= quantity) {
 			balance -= quantity;

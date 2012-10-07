@@ -1,7 +1,5 @@
 package rts.lab02;
 
-import java.util.Random;
-
 import javax.swing.JTextArea;
 
 public class Controller {
@@ -15,6 +13,9 @@ public class Controller {
 		store = new Store(textArea);	
 	}
 
+	/**
+	 * Создание потоков поставщика и потребителя
+	 */
 	public void start() {
 		consumer = new Thread(new Consumer(store));
 		supplier = new Thread(new Supplier(store));
@@ -23,6 +24,9 @@ public class Controller {
 		consumer.start();
 	}
 
+	/**
+	 * Прерывание потков поставщика и потребителя
+	 */
 	public void stop() {
 		supplier.interrupt();
 		consumer.interrupt();
